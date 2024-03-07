@@ -1,4 +1,1 @@
-use crate::piece;
-use piece::GamePiece;
-
-// TODO: Create functions initialize( ) and default( )
+// Contains the board, and manages the logic.

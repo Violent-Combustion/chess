@@ -1,7 +1,1 @@
-mod piece;
-
-mod board;
-
-fn main( ) {
-
-}
+// Main gets the board up and running, so you may play chess.
