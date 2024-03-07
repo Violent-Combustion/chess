@@ -1,11 +1,18 @@
 pub struct GamePiece {
-    variant: variants::PieceEnum,
-    color: i32,
+    variant: variants::VariantEnum,
+    color: color::ColorEnum,
     //     ^^^    This value should be hexadecimal
 }
 
+pub mod color {
+    pub enum ColorEnum {
+        White,
+        Black,
+    }
+}
+
 pub mod variants {
-    pub enum PieceEnum {
+    pub enum VariantEnum {
         Pawn,
         Rook,
         Knight,
@@ -16,7 +23,7 @@ pub mod variants {
 }
 
 impl GamePiece {
-    pub fn build( variant: variants::PieceEnum, color: i32 )-> GamePiece {
+    pub fn build( variant: variants::VariantEnum, color: color::ColorEnum )-> GamePiece {
         GamePiece {
             variant: variant,
             color: color,

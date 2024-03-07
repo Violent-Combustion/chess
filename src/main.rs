@@ -1,6 +1,7 @@
 mod piece;
-use piece::GamePiece;
+
+mod board;
 
 fn main( ) {
-    let x = GamePiece::build( piece::variants::PieceEnum::Pawn, 1 );
+
 }
