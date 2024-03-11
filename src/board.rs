@@ -2,6 +2,6 @@
 
 struct Board {
     grid: [ [ option; 8 ]; 8 ],
-    // turn: ColorEnum,
+    turn: ColorEnum,
     game_over: bool,
 }
