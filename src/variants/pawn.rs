@@ -2,6 +2,7 @@ pub struct Pawn {
     display: char,
     color: ColorEnum,
     movement: [ ( i32, i32 ); 4 ],
+    is_first_move: bool,
 }
 
 impl Piece for Pawn {
