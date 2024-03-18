@@ -1,12 +1,16 @@
-// Contains the board. And basically everthing that happens to the chess pieces happens here.
+// Contains the board, which contains all the pieces.
+// Communicates context to the pieces and allows them to figure out whiether they are allowed to
+//     move or not, and if they can, executes the movement.
+
+use crate::piece::ColorEnum;
 
 struct Board {
-    grid: [ [ option; 8 ]; 8 ],
+    grid: [ [ Option< >; 8 ]; 8 ],
     turn: ColorEnum,
     draw: bool,
-    history: vec<Str>,
+    history: Vec< &str >,
 }
 
 mod coordinate_system {
-    fn TODO( ) { println!("TODO"); }
+    fn todo( ) { println!("TODO"); }
 }
