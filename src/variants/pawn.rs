@@ -1,12 +1,14 @@
-pub struct Pawn {
+use crate::piece;
+
+pub struct Pawn< T > {
     display: char,
     color: ColorEnum,
     movement: [ ( i32, i32 ); 4 ],
     is_first_move: bool,
 }
 
-impl Piece for Pawn {
-    fn build( color: ColorEnum )-> self {
+impl Piece for Pawn< T > {
+    fn build( color: ColorEnum )-> Self {
 
         //checks to see what color the piece is, 
         //    so to allow the system to build a pawn that moves the right way.
@@ -30,5 +32,5 @@ impl Piece for Pawn {
         }
     }
 
-    fn validate_move( &self, ( x, y ): ( i32, i32 ) )-> bool;
+    fn validate_move( &self, ( x, y ): ( i32, i32 ) )-> bool { }
 }

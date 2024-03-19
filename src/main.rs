@@ -4,5 +4,8 @@ mod board;
 mod piece;
 mod message;
 
+use crate::pawn::Pawn;
+
+
 
 fn main( ) {}

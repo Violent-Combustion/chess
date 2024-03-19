@@ -3,12 +3,13 @@
 //     move or not, and if they can, executes the movement.
 
 use crate::piece::ColorEnum;
+use crate::pawn::Pawn;
 
-struct Board {
-    grid: [ [ Option< >; 8 ]; 8 ],
+struct Board<'a> {
+    grid: [ [ Option< P >; 8 ]; 8 ],
     turn: ColorEnum,
     draw: bool,
-    history: Vec< &str >,
+    history: Vec< &'a str >,
 }
 
 mod coordinate_system {
