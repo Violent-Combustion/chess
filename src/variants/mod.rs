@@ -1,6 +1,6 @@
-mod bishop;
-mod king;
-mod knight;
-mod pawn;
-mod queen;
-mod rook;
+pub mod bishop;
+pub mod king;
+pub mod knight;
+pub mod pawn;
+pub mod queen;
+pub mod rook;

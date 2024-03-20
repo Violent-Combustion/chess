@@ -3,7 +3,6 @@
 //     move or not, and if they can, executes the movement.
 
 use crate::piece::ColorEnum;
-use crate::pawn::Pawn;
 
 struct Board<'a> {
     grid: [ [ Option< P >; 8 ]; 8 ],

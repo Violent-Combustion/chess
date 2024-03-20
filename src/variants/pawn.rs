@@ -1,13 +1,21 @@
-use crate::piece;
+#[ path="../piece.rs" ]
+mod piece;
+use piece::{ ColorEnum, Piece };
 
-pub struct Pawn< T > {
+#[ path="../message.rs"]
+mod message;
+use message::Message;
+
+
+
+pub struct Pawn {
     display: char,
     color: ColorEnum,
     movement: [ ( i32, i32 ); 4 ],
-    is_first_move: bool,
+    has_moved: bool,
 }
 
-impl Piece for Pawn< T > {
+impl Piece for Pawn {
     fn build( color: ColorEnum )-> Self {
 
         //checks to see what color the piece is, 
@@ -29,8 +37,9 @@ impl Piece for Pawn< T > {
             display: 'P',
             color: color,
             movement: movement,
+            has_moved: false,
         }
     }
 
-    fn validate_move( &self, ( x, y ): ( i32, i32 ) )-> bool { }
+    fn validate_move( &self, x: Message )-> bool { true }
 }
