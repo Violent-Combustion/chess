@@ -3,4 +3,9 @@ fn main( ) {
 }
 
 #[ cfg( test ) ]
-mod tests {   }
+mod tests {
+    #[ test ]
+    fn pawn_board( ) {
+        board::build( [ [ option( Pawn, White ); 8 ]; 8 ] )
+    }
+}

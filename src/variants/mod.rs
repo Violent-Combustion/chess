@@ -11,3 +11,5 @@ pub enum PieceColor {
     Black,
     White,
 }
+
+pub mod pawn;
