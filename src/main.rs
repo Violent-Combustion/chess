@@ -4,8 +4,11 @@ fn main( ) {
 
 #[ cfg( test ) ]
 mod tests {
+    use chess::board::Board;
+    use chess::variants::{ PieceColor, PieceType };
+
     #[ test ]
     fn pawn_board( ) {
-        board::build( [ [ option( Pawn, White ); 8 ]; 8 ] )
+        Board::build( [ [ Some(( PieceColor::White, PieceType::Pawn )); 8 ]; 8 ] );
     }
 }
