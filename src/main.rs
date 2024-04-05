@@ -1,3 +1,6 @@
+use chess::variants::{PieceColor, PieceType};
+use chess::board::Board;
+
 fn main( ) {
     println!( "Hello world!" );
 }
@@ -5,10 +8,9 @@ fn main( ) {
 #[ cfg( test ) ]
 mod tests {
     use chess::board::Board;
-    use chess::variants::{ PieceColor, PieceType };
-
+    
     #[ test ]
-    fn pawn_board( ) {
-        Board::build( [ [ Some(( PieceColor::White, PieceType::Pawn )); 8 ]; 8 ] );
+    fn setup_board( ) {
+        Board::build_default( );
     }
 }
