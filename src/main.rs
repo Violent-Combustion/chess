@@ -1,5 +1,4 @@
 use chess::variants::{PieceColor, PieceType};
-use chess::board::Board;
 
 fn main( ) {
     println!( "Hello world!" );

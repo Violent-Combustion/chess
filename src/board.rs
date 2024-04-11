@@ -47,4 +47,8 @@ impl Board {
             move_history: vec![],
         }
     }
+
+    fn get_piece( board: Board, ( x, y ): ( usize, usize ) )-> PieceType {
+        ( piece_type: PieceType, piece_color: PieceColor ) = board.grid[y][x];
+    }
 }
