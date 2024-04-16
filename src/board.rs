@@ -4,7 +4,7 @@ use crate::variants::{ PieceColor, PieceType };
 pub struct Board {
     grid: [ [ Option<( PieceColor, PieceType )>; 8]; 8],
     player_turn: PieceColor,
-    move_history: Vec<String>,
+    //move_history: Vec<String>,
 }
 
 impl Board {
@@ -12,7 +12,7 @@ impl Board {
         Board {
             grid: board_config,
             player_turn: PieceColor::White,
-            move_history: vec![],
+            //move_history: vec![],
         }
     }
     pub fn build_default()-> Board {
@@ -45,7 +45,7 @@ impl Board {
                 Some( ( PieceColor::Black, PieceType::Knight ) ),
                 Some( ( PieceColor::Black, PieceType::Rook ) ) ], ],
             player_turn: PieceColor::White,
-            move_history: vec![],
+            //move_history: vec![],
         }
     }
 
