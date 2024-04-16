@@ -1,5 +1,6 @@
 use crate::variants::{ PieceColor, PieceType };
 
+#[derive(Debug, Copy, Clone)]
 pub struct Board {
     grid: [ [ Option<( PieceColor, PieceType )>; 8]; 8],
     player_turn: PieceColor,
@@ -48,17 +49,20 @@ impl Board {
         }
     }
 
-    pub fn get_piece( board: Board, ( x, y ): ( usize, usize ) )-> Option<( PieceColor, PieceType )> {
-        let piece: Option<( PieceColor, PieceType )> = board.grid[y][x];
-        
-        return piece
+    pub fn get_piece( &self, ( x, y ): ( usize, usize ) )-> Option<( PieceColor, PieceType )> {
+        let piece: Option<( PieceColor, PieceType )> = self.grid[y][x];
+        piece
     }
 
-    pub fn set_piece( self, ( x, y ): ( usize, usize ), piece: Option<( PieceColor, PieceType )> )-> Self {
-        //TODO
+    pub fn set_piece( mut self, ( x, y ): ( usize, usize ), piece: Option<( PieceColor, PieceType )> )-> Board {
+        self.grid[y][x] = piece;
+        self
     }
 
-    pub fn move_piece( board: Board, ( x1, y1 ): ( usize, usize ), ( x2, y2 ): ( usize, usize ))-> Board {
-        let piece = Board::get_piece( board, ( x1, y1 ) );
+    pub fn move_piece( self, ( x1, y1 ): ( usize, usize ), ( x2, y2 ): ( usize, usize ) )-> Board {
+        let piece = Board::get_piece( &self, ( x1, y1 ) );
+        self.set_piece( ( x2, y2 ), piece );
+        self.set_piece( ( x1, y1), None );
+        self
     }
 }
