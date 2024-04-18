@@ -43,7 +43,7 @@ impl Board {
                 Some( ( PieceColor::Black, PieceType::King ) ),
                 Some( ( PieceColor::Black, PieceType::Bishop ) ),
                 Some( ( PieceColor::Black, PieceType::Knight ) ),
-                Some( ( PieceColor::Black, PieceType::Rook ) ) ], ],
+                Some( ( PieceColor::Black, PieceType::Rook ) ) ] ],
             player_turn: PieceColor::White,
             //move_history: vec![],
         }
@@ -62,7 +62,7 @@ impl Board {
     pub fn move_piece( self, ( x1, y1 ): ( usize, usize ), ( x2, y2 ): ( usize, usize ) )-> Board {
         let piece = Board::get_piece( &self, ( x1, y1 ) );
         self.set_piece( ( x2, y2 ), piece );
-        self.set_piece( ( x1, y1), None );
+        self.set_piece( ( x1, y1 ), None );
         self
     }
 }
