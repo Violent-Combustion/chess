@@ -19,8 +19,18 @@ mod tests {
         board.move_piece( ( 2, 5 ), ( 4, 5 ) );
         assert!( board.get_piece( ( 2, 5 ) ).is_none() );
 
-        assert!( { if board.get_piece( ( 4, 5 ) ).is_some() {
-            board.get_piece( ( 4, 5 ) )[1] == PieceColor::White
-        } } );
-    } //FIX THIIIIIIIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        match board.get_piece( ( 4, 5 ) ) {
+            None => { panic!(); },
+            Some( ( color, piece ) ) => {
+                match color {
+                    White => { },
+                    Black => { panic!(); }
+                };
+                match piece {
+                    Pawn => { },
+                    _ => { panic!(); }
+                }
+            }
+        };
+    }
 }
