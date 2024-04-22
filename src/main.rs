@@ -1,7 +1,7 @@
-use chess::variants::{PieceColor, PieceType};
+use chess::board::Board;
 
 fn main( ) {
-    println!( "Hello world!" );
+    println!( "{:?}, {:?}", Board::build_default( ).move_piece( ( 1, 2 ), ( 1, 4 ) ).get_piece( ( 1, 4 ) ), Board::build_default( ).move_piece( ( 1, 2 ), ( 1, 4 ) ).get_piece( ( 1, 2 ) ) );
 }
 
 #[ cfg( test ) ]
@@ -15,22 +15,7 @@ mod tests {
 
     #[ test ]
     fn move_pawn( ) {
-        let board = Board::build_default( );
-        board.move_piece( ( 2, 5 ), ( 4, 5 ) );
-        assert!( board.get_piece( ( 2, 5 ) ).is_none() );
-
-        match board.get_piece( ( 4, 5 ) ) {
-            None => { panic!(); },
-            Some( ( color, piece ) ) => {
-                match color {
-                    White => { },
-                    Black => { panic!(); }
-                };
-                match piece {
-                    Pawn => { },
-                    _ => { panic!(); }
-                }
-            }
-        };
+        let moved_piece = Board::build_default( ).move_piece( ( 1, 2 ), ( 1, 4 ) ).get_piece( ( 1, 4 ) );
+        assert_eq!( moved_piece, Some( ( White, Pawn ) ) );
     }
 }
