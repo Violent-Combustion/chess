@@ -56,12 +56,13 @@ impl Board {
 
     pub fn set_piece( mut self, ( x, y ): ( usize, usize ), piece: Option<( PieceColor, PieceType )> )-> Board {
         self.grid[y-1][x-1] = piece;
+        self
     }
 
     pub fn move_piece( self, ( x1, y1 ): ( usize, usize ), ( x2, y2 ): ( usize, usize ) )-> Board {
-        let piece = Board::get_piece( &self, ( x1, y1 ) );
-        self.set_piece( ( x2, y2 ), piece );
+        self.set_piece( ( x2, y2 ), self.get_piece( ( x1, y1 ) ) );
         self.set_piece( ( x1, y1 ), None );
+        print!( "{:#?}", self.grid );
         self
     }
 }

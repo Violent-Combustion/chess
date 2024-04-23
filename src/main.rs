@@ -1,7 +1,7 @@
 use chess::board::Board;
 
 fn main( ) {
-    println!( "{:?}, {:?}", Board::build_default( ).move_piece( ( 1, 2 ), ( 1, 4 ) ).get_piece( ( 1, 4 ) ), Board::build_default( ).move_piece( ( 1, 2 ), ( 1, 4 ) ).get_piece( ( 1, 2 ) ) );
+    Board::build_default( ).move_piece( ( 1, 2 ), ( 1, 4 ) );
 }
 
 #[ cfg( test ) ]
