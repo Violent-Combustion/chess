@@ -64,4 +64,14 @@ impl Board {
         self = self.set_piece( ( x1, y1 ), None );
         self
     }
+
+    pub fn move_piece_checked( mut self, ( x1, y1 ): ( usize, usize ), ( x2, y2 ): ( usize, usize ) )-> Board {
+        match self.get_piece( ( x1, y1 ) ) {
+            None => false,
+            Some( ( color, ptype) ) => ( color, ptype ),
+        }
+        self = self.set_piece( ( x2, y2 ), self.get_piece( ( x1, y1 ) ) );
+        self = self.set_piece( ( x1, y1 ), None );
+        self
+    }
 }

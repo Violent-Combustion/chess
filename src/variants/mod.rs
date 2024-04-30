@@ -1,6 +1,8 @@
+use crate::variants::{ pawn::Pawn };
+
 #[derive(Debug, Copy, Clone, PartialEq)]
 pub enum PieceType {
-    Pawn,
+    Pawn(Pawn),
     Rook,
     Bishop,
     Queen,
@@ -15,7 +17,7 @@ pub enum PieceColor {
 }
 
 trait Piece {
-    fn verify_move( ( x, y ): ( usize, usize ) )-> bool; //WHY ARE PATTERNS NOT PERMITTED HERE?!?!
+    fn verify_move( x1: usize, y1: usize, x2: usize, y2: usize )-> bool;
 }
 
 pub mod pawn;
