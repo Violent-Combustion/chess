@@ -1,17 +1,16 @@
-#[ derive( Debug ) ]
+use crate::variants::{ PieceColor, PieceType };
+
+#[ derive( Debug, PartialEq ) ]
 pub struct Board {
-    grid: [ Option<isize>; 8 ],
+    grid: [ [ Option<PieceType>; 8 ]; 8 ],
+    turn: PieceColor,
 }
 
 impl Board {
-    pub fn build( grid: [ Option<isize>; 8 ] )-> Board {
-        Board { grid: grid }
-    }
-    pub fn change_grid( board: &mut Self, grid: [ Option<isize>; 8 ] )-> &Board {
-        board.grid = grid;
-        board
-    }
-    pub fn get_first( board: &Self ) {
-        println!( "{:?}", board.grid[0] );
+    pub fn build( grid: [ [ Option<PieceType>; 8 ]; 8 ], color: PieceColor )-> Board {
+        Board {
+            grid: grid,
+            turn: color,
+        }
     }
 }
