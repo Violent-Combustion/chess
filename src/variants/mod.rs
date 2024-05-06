@@ -1,21 +1,36 @@
-use crate::variants::{ pawn::Pawn, rook::Rook };
+use crate::variants::{
+    pawn::Pawn,
+    rook::Rook,
+    bishop::Bishop,
+    king::King,
+    queen::Queen,
+    knight::Knight,
+};
 
-#[derive( Debug, PartialEq )]
+#[derive( Debug, PartialEq, Copy, Clone )]
 pub enum PieceColor {
     Black,
     White,
 }
 
-#[derive( Debug, PartialEq )]
+#[derive( Debug, PartialEq, Copy, Clone )]
 pub enum PieceType {
-    Pawn(Pawn),
-    Rook(Rook),
+    Pawn( Pawn ),
+    Rook( Rook ),
+    Bishop( Bishop ),
+    King( King ),
+    Queen( Queen ),
+    Knight( Knight ),
 }
 
-trait Piece {
+pub trait Piece {
     fn build( color: PieceColor, has_moved: bool )-> Self;
     fn build_initialized( color: PieceColor )-> Self;
 }
 
 pub mod pawn;
 pub mod rook;
+pub mod bishop;
+pub mod king;
+pub mod queen;
+pub mod knight;

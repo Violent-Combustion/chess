@@ -1,6 +1,6 @@
 use crate::variants::{ PieceColor, Piece };
 
-#[derive( Debug, PartialEq )]
+#[derive( Debug, PartialEq, Copy, Clone )]
 pub struct Pawn {
     color: PieceColor,
     has_moved: bool,
@@ -14,7 +14,7 @@ impl Piece for Pawn {
         }
     }
     fn build_initialized( color: PieceColor )-> Self {
-        Pawn{
+        Pawn {
             color: color,
             has_moved: false,
         }
