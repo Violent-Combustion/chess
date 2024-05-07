@@ -55,4 +55,14 @@ impl Board {
                 turn: PieceColor::White,
         }
     }
+    pub fn get_piece( board: &Self, x: usize, y: usize )-> Option<PieceType> {
+        board.grid[y-1][x-1]
+    }
+    pub fn set_piece( board: &mut Self, ( x, y ): ( usize, usize ), piece: Option<PieceType> ) {
+        board.grid[y-1][x-1] = piece;
+    }
+    pub fn move_piece( board: &mut Self, ( x1, y1 ): ( usize, usize ), ( x2, y2 ): ( usize, usize ) ) {
+        Board::set_piece( board, ( x2, y2 ), Board::get_piece( board, x1, y1 ));
+        Board::set_piece( board, ( x1, y1 ), None );
+    }
 }
