@@ -22,10 +22,13 @@ impl Piece for Pawn {
     fn verify_move( piece: &Self, x1: usize, y1: usize, x2: usize, y2: usize )-> bool {
         if x2 == x1 && y2 == y1+1 {
             true
-        } else if piece.has_moved == false && x2 == x1 && y2 == y1+2 { //PAWNS CAN ALWAYS MOVE TWO FORWARDS!
+        } else if piece.has_moved == false && x2 == x1 && y2 == y1+2 { 
             true
         } else {
             false
         }
+    }
+    fn flag_moved( piece: &mut Self ) {
+        piece.has_moved = true;
     }
 }

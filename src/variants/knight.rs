@@ -27,4 +27,7 @@ impl Piece for Knight {
             false
         }
     }
+    fn flag_moved( piece: &mut Self ) {
+        piece.has_moved = true;
+    }
 }

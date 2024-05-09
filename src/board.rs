@@ -74,7 +74,18 @@ impl Board {
             }
         };
         if valid {
-            Board::set_piece( board, ( x2, y2 ), Board::get_piece( board, x1, y1 ) );
+            let piece = match Board::get_piece( board, x1, y1 ) {
+                Some( piece_label ) => match piece_label {
+                    PieceType::Pawn( mut pawn ) => {
+                        Piece::flag_moved( &mut pawn );
+                        Some( PieceType::Pawn( pawn ) )
+                    },
+                    _ => None,
+                }
+                None => None,
+            };
+
+            Board::set_piece( board, ( x2, y2 ), piece );
             Board::set_piece( board, ( x1, y1 ), None );
         }
     }
