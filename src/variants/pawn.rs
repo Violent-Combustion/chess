@@ -22,7 +22,7 @@ impl Piece for Pawn {
     fn verify_move( piece: &Self, x1: usize, y1: usize, x2: usize, y2: usize )-> bool {
         if x2 == x1 && y2 == y1+1 {
             true
-        } else if piece.has_moved == false && x2 == x1 && y2 == y1+2 {
+        } else if piece.has_moved == false && x2 == x1 && y2 == y1+2 { //PAWNS CAN ALWAYS MOVE TWO FORWARDS!
             true
         } else {
             false

@@ -68,8 +68,14 @@ impl Board {
     pub fn move_checked( board: &mut Self, ( x1, y1 ): ( usize, usize ), ( x2, y2 ): ( usize, usize ) ) { //KEEP WORKING ON THIS FUNCTION
         let valid = match Board::get_piece( board, x1, y1 ) {
             None => false,
-            Some( piece ) => Piece::verify_move( piece, x1, y1, x2, y2 )
+            Some( piece_label ) => match piece_label {
+                PieceType::Pawn( pawn ) => Piece::verify_move( &pawn, x1, y1, x2, y2 ),
+                _ => false,
+            }
         };
-        Board::set_piece( board, ( x1, y1 ), None );
+        if valid {
+            Board::set_piece( board, ( x2, y2 ), Board::get_piece( board, x1, y1 ) );
+            Board::set_piece( board, ( x1, y1 ), None );
+        }
     }
 }
