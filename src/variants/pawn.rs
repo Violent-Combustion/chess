@@ -28,7 +28,7 @@ impl Piece for Pawn {
             false
         }
     }
-    fn flag_moved( piece: &mut Self ) {
+    fn set_moved( piece: &mut Self ) {
         piece.has_moved = true;
     }
 }
