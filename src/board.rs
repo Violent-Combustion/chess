@@ -66,7 +66,7 @@ impl Board {
         Board::set_piece( board, ( x1, y1 ), None );
     }
     pub fn flag_piece_as_moved<'a>( mut piece: &'a mut Option<PieceType> ) {
-        piece = match &piece {
+        piece = match piece {
             Some( piece_label ) => match piece_label {
                 PieceType::Pawn( mut pawn ) => {
                     Piece::set_moved( &mut pawn );
