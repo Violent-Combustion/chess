@@ -65,7 +65,7 @@ impl Board {
         Board::set_piece( board, ( x2, y2 ), Board::get_piece( board, x1, y1 ));
         Board::set_piece( board, ( x1, y1 ), None );
     }
-    pub fn flag_piece_as_moved( piece: &mut Option<PieceType> ) {
+    pub fn flag_piece_as_moved( piece: &mut Option<PieceType> )-> &mut Option<PieceType> {
         *piece = match piece {
             Some( piece_label ) => match piece_label {
                 PieceType::Pawn( mut pawn ) => {
@@ -76,6 +76,7 @@ impl Board {
             }
             None => None,
         };
+        piece
     }
     pub fn move_checked( board: &mut Self, ( x1, y1 ): ( usize, usize ), ( x2, y2 ): ( usize, usize ) ) { //KEEP WORKING ON THIS FUNCTION
         let valid = match Board::get_piece( board, x1, y1 ) {
@@ -86,18 +87,7 @@ impl Board {
             }
         };
         if valid {
-            let piece = match Board::get_piece( board, x1, y1 ) {
-                Some( piece_label ) => match piece_label {
-                    PieceType::Pawn( mut pawn ) => {
-                        Piece::set_moved( &mut pawn );
-                        Some( PieceType::Pawn( pawn ) )
-                    },
-                    _ => None,
-                }
-                None => None,
-            };
-
-            Board::set_piece( board, ( x2, y2 ), piece );
+            Board::set_piece( board, ( x2, y2 ), *Self::flag_piece_as_moved( &mut Board::get_piece( board, x1, y1 ) ) );
             Board::set_piece( board, ( x1, y1 ), None );
         }
     }
