@@ -20,9 +20,18 @@ impl Piece for Queen {
         }
     }
     fn verify_move( piece: &Self, x1: usize, y1: usize, x2: usize, y2: usize )-> bool {
-        if x2 == x1 && y2 == y1+1 {
+        let x1 = x1 as isize;
+        let x2 = x2 as isize;
+        let y1 = y1 as isize;
+        let y2 = y2 as isize;
+
+        if x2 == x1 && y2 != y1 {
             true
-        } else if piece.has_moved == false && x2 == x1 && y2 == y1+2 {
+        } else if x2 != x1 && y2 == y1 {
+            true
+        } else if x2 - x1 == y2 - y1 { //THE QUEEN CANNOT MOVE DIAGONALLY
+            true
+        } else if x2 - x1 == -( y2 - y1 ) { //THE QUEEN CANNOT MOVE DIAGONALLY
             true
         } else {
             false

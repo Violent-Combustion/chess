@@ -72,6 +72,14 @@ impl Board {
                     Piece::set_moved( &mut pawn );
                     Some( PieceType::Pawn( pawn ) )
                 },
+                PieceType::Rook( mut rook ) => {
+                    Piece::set_moved( &mut rook );
+                    Some( PieceType::Rook( rook ) )
+                },
+                PieceType::Queen( mut queen ) => {
+                    Piece::set_moved( &mut queen );
+                    Some( PieceType::Queen( queen ) )
+                },
                 _ => None,
             }
             None => None,
@@ -83,6 +91,8 @@ impl Board {
             None => false,
             Some( piece_label ) => match piece_label {
                 PieceType::Pawn( pawn ) => Piece::verify_move( &pawn, x1, y1, x2, y2 ),
+                PieceType::Rook( rook ) => Piece::verify_move( &rook, x1, y1, x2, y2 ),
+                PieceType::Queen( queen ) => Piece::verify_move( &queen, x1, y1, x2, y2 ),
                 _ => false,
             }
         };
