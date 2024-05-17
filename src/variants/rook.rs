@@ -19,7 +19,7 @@ impl Piece for Rook {
             has_moved: false,
         }
     }
-    fn verify_move( piece: &Self, x1: usize, y1: usize, x2: usize, y2: usize )-> bool {
+    fn verify_move( _piece: &Self, x1: isize, y1: isize, x2: isize, y2: isize )-> bool {
         if x2 == x1 && y2 != y1 {
             true
         } else if x2 != x1 && y2 == y1 {

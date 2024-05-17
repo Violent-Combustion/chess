@@ -8,7 +8,7 @@ fn main( ) {
     println!( "Initial location after movement: {:#?}", Board::get_piece( &board, 4, 7 ) );
     println!( "New location after movement: {:#?}", Board::get_piece( &board, 4, 5 ) );
 
-    Board::move_checked( &mut board, ( 4, 1 ), ( 2, 3 ) ); //THE QUEEN DOES NOT MOVE
+    Board::move_checked( &mut board, ( 4, 1 ), ( 1, 6 ) ); //THE QUEEN DOES NOT MOVE
 
     println!( "Initial location after movement: {:#?}", Board::get_piece( &board, 4, 1 ) );
     println!( "New location after movement: {:#?}", Board::get_piece( &board, 2, 3 ) );

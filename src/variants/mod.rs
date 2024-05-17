@@ -26,7 +26,7 @@ pub enum PieceType {
 pub trait Piece {
     fn build( color: PieceColor, has_moved: bool )-> Self;
     fn build_initialized( color: PieceColor )-> Self;
-    fn verify_move( piece: &Self, x1: usize, y1: usize, x2: usize, y2: usize )-> bool;
+    fn verify_move( piece: &Self, x1: isize, y1: isize, x2: isize, y2: isize )-> bool;
     fn set_moved( piece: &mut Self );
 }
 
