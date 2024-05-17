@@ -19,10 +19,14 @@ impl Piece for Bishop {
             has_moved: false,
         }
     }
-    fn verify_move( piece: &Self, x1: isize, y1: isize, x2: isize, y2: isize )-> bool {
-        if x2 == x1 && y2 == y1+1 {
+    fn verify_move( _piece: &Self, x1: isize, y1: isize, x2: isize, y2: isize )-> bool {
+        if x2 - x1 == y2 - y1 { 
             true
-        } else if piece.has_moved == false && x2 == x1 && y2 == y1+2 {
+        } else if x2 - x1 == -( y2 - y1 ) {
+            true
+        } else if -( x2 - x1 ) == y2 - y1 { 
+            true
+        } else if -( x2 - x1 ) == -( y2 - y1 ) {
             true
         } else {
             false

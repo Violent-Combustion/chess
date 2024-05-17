@@ -80,7 +80,18 @@ impl Board {
                     Piece::set_moved( &mut queen );
                     Some( PieceType::Queen( queen ) )
                 },
-                _ => None,
+                PieceType::King( mut king ) => {
+                    Piece::set_moved( &mut king );
+                    Some( PieceType::King( king ) )
+                },
+                PieceType::Bishop( mut bishop ) => {
+                    Piece::set_moved( &mut bishop );
+                    Some( PieceType::Bishop( bishop ) )
+                },
+                PieceType::Knight( mut knight ) => {
+                    Piece::set_moved( &mut knight );
+                    Some( PieceType::Knight( knight ) )
+                },
             }
             None => None,
         };
@@ -93,7 +104,9 @@ impl Board {
                 PieceType::Pawn( pawn ) => Piece::verify_move( &pawn, x1, y1, x2, y2 ),
                 PieceType::Rook( rook ) => Piece::verify_move( &rook, x1, y1, x2, y2 ),
                 PieceType::Queen( queen ) => Piece::verify_move( &queen, x1, y1, x2, y2 ),
-                _ => false,
+                PieceType::King( king ) => Piece::verify_move( &king, x1, y1, x2, y2 ),
+                PieceType::Bishop( bishop ) => Piece::verify_move( &bishop, x1, y1, x2, y2 ),
+                PieceType::Knight( knight ) => Piece::verify_move( &knight, x1, y1, x2, y2 ),
             }
         };
         if valid {
